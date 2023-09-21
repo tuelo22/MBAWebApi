@@ -21,21 +21,14 @@ namespace MBAWebApi.Controllers
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
-            try
-            {
-                return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-                {
-                    Date = DateTime.Now.AddDays(index),
-                    TemperatureC = Random.Shared.Next(-20, 55),
-                    Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-                }).ToArray();
-            }
-            catch (Exception ex)
-            {
-                _logger.Log(LogLevel.Information, ex, "Falha ao realizar request.");
+            _logger.Log(LogLevel.Information, "Acesso ao endpoint");
 
-                throw;
-            }
+            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            {
+                Date = DateTime.Now.AddDays(index),
+                TemperatureC = Random.Shared.Next(-20, 55),
+                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
+            }).ToArray();
         }
     }
 }
