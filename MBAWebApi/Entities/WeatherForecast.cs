@@ -1,4 +1,4 @@
-namespace MBAWebApi
+namespace MBAWebApi.Entities
 {
     public class WeatherForecast
     {

@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 
-namespace MBAWebApi
+namespace MBAWebApi.Entities
 {
     public static class PontosTuristicosService
     {
-        public static List<String> Listar()
+        public static List<string> Listar()
         {
             return new()
             {
@@ -13,7 +13,7 @@ namespace MBAWebApi
                 "Praia de Ponta Negra",
                 "Farol de Ponta Negra",
                 "Praia da Sacristia"
-            }; 
+            };
         }
     }
 }
