@@ -22,13 +22,14 @@ builder.Services
         failureStatus: Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus.Unhealthy
     )
     .AddUrlGroup(new Uri("https://httpbin.org/status/200"), "Api Terceiro não autenticada")
-    .AddCheck<HealthCheckRandom>(name: "API RANDOM"); ;
+    .AddCheck<HealthCheckRandom>(name: "API RANDOM");
 
 builder.Services
     .AddHealthChecksUI(s =>
     {
         s.AddHealthCheckEndpoint("MBA WEBAPI", "https://localhost:44373/healthz");
     }).AddInMemoryStorage();
+builder.Services.AddApplicationInsightsTelemetry(builder.Configuration["APPLICATIONINSIGHTS_CONNECTION_STRING"]);
 
 var app = builder.Build();
 
