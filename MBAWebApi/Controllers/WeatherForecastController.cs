@@ -1,3 +1,4 @@
+using MBAWebApi.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MBAWebApi.Controllers
@@ -21,7 +22,7 @@ namespace MBAWebApi.Controllers
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
-            _logger.Log(LogLevel.Information, "Acesso ao endpoint");
+            _logger.Log(LogLevel.Information, "Acesso ao endpoint GetWeatherForecast");
 
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {

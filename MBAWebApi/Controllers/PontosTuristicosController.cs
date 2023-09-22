@@ -1,9 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MBAWebApi.Entities;
+using Microsoft.AspNetCore.Mvc;
 
 namespace MBAWebApi.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("[controller]")]
     public class PontosTuristicosController : ControllerBase
     {
         private readonly ILogger<PontosTuristicosController> _logger;
@@ -13,19 +14,12 @@ namespace MBAWebApi.Controllers
             _logger = logger;
         }
 
-        [HttpGet(Name = "GetWeatherForecast")]
+        [HttpGet(Name = "GetPontosTuristicos")]
         public IEnumerable<String> Get()
         {
-            try
-            {
-                return PontosTuristicosService.Listar();
-            }
-            catch (Exception ex)
-            {
-                _logger.Log(LogLevel.Information, ex, "Falha ao realizar request.");
+            _logger.Log(LogLevel.Information, "Acesso ao endpoint PontosTuristicos GET");
 
-                throw;
-            }
+            return PontosTuristicosService.Listar();
         }
     }
 }
